@@ -24,9 +24,8 @@ const Team = () => {
               <div className="order-2 xl:order-1">
                 <h2 className="text-2xl font-semibold">Artist,Developer</h2>
                 <p className="text-2xl py-16" style={{ lineHeight: "47px" }}>
-                  If you guys enjoy your pups and want to let me know,or you
-                  just want fight or something.Shoot me an email or hit me up on
-                  discord.It would be mean a lot of mean.
+                  If you guys enjoy your pups and want to let me know. Shoot me an email or hit me up on
+                  discord.
                 </p>
               </div>
               <div className="flex content-center items-center sm:p-10  order-1 xl:order-2 relative bottom-10 ">
