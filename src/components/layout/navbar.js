@@ -27,7 +27,7 @@ const Navbar = () => {
               href="#road_map"
               className="cursor-pointer text-2xl font-bold mr-8 text-white "
             >
-              Road Map
+              Roadmap
             </a>
 
             <a

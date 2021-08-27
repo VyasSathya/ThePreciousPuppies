@@ -29,7 +29,7 @@ const RoadMap = () => {
             </div>
             <div className="flex-1 ml-6 sm:ml-10">
               <p className=" text-xl sm:text-2xl ">
-                Precious Puppies Launch: September 1st. The pups are released
+                Precious Puppies Launch: The pups are released
                 and joy is spread.{" "}
               </p>
               <p className="text-xl sm:text-2xl mt-20 ">
@@ -45,7 +45,7 @@ const RoadMap = () => {
                 off your puppy pride{" "}
               </p>
               <p className="text-xl sm:text-2xl pt-20 ">
-                It's time to MYP: Meet Your Pups{" "}
+                It's time to MYP: Meet Your Pups And the fun is only getting started{" "} 
               </p>
             </div>
           </div>

@@ -1,0 +1,4 @@
+git add .
+git commit -m "whatever you want"
+git push
+npm run deploy

@@ -47,10 +47,10 @@ const Precious = ({ sellStatus }) => {
         // eth_accounts will return an empty array.
         console.error(err);
       });
-    // const myAccount = "" + currentAccount[0];
+    const myAccount = "" + currentAccount[0];
     if (currentAccount !== '') {
       //Contract Address
-      const address = '0xd073E416F21687E9DaD7Dc66E8A7f32Fbfa0d441';
+      const address = '0x94f16d55f4e0B2faD69DE89974E1CEC598FC9B6F';
       const abi = PreciousPuppies;
       const MyContract = new web3.eth.Contract(abi, address);
       console.log('Number of Dogs to buy: ', count);
@@ -58,11 +58,11 @@ const Precious = ({ sellStatus }) => {
       console.log('Price of a Puppy: ', currPrice);
       const requiredAmount = (currPrice * count).toString();
       console.log('Amount to be sent: ', requiredAmount);
-      // const val = await MyContract.methods.getPups(count).send({
-      //   from: myAccount,
-      //   gasPrice: "20000000000",
-      //   value: requiredAmount,
-      // });
+      const val = await MyContract.methods.getPups(count).send({
+        from: myAccount,
+        gasPrice: "20000000000",
+        value: requiredAmount,
+      });
     } else {
       window.alert('Please Connect a MetaMask Account');
     }
@@ -123,13 +123,14 @@ const Precious = ({ sellStatus }) => {
                     className="border-2 text-lg cursor-pointer sm:text-2xl border-purple-600 bg-pink-100 font-bold rounded-full px-1 my-6 sm:px-14 py-4"
                     onClick={findProvider}
                   >
-                    Mini {count} pups
+                    Mint {count} pups
                   </h1>
                   <button
                     type="button"
+                    style={{ width: 200 }}
                     className="bg-blue-100 py-2 px-3 sm:px-7 border-2 border-blue-700  text-2xl font-extrabold text-blue-800 "
                   >
-                    {count * 0.04} eth/pup
+                    {count * 0.04} eth
                   </button>
                 </div>
 
