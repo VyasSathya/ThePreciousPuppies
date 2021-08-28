@@ -22,10 +22,9 @@ const Team = () => {
             </h1>
             <div className="grid grid-cols-1 xl:grid-cols-2  md:px-20  pt-24 md:pt-10">
               <div className="order-2 xl:order-1">
-                <h2 className="text-2xl font-semibold">Artist,Developer</h2>
+                <h2 className="text-2xl font-semibold">Artist, Developer</h2>
                 <p className="text-2xl py-16" style={{ lineHeight: "47px" }}>
-                  If you guys enjoy your pups and want to let me know. Shoot me an email or hit me up on
-                  discord.
+                  Feel free to tweet at me or come chill with us on discord.
                 </p>
               </div>
               <div className="flex content-center items-center sm:p-10  order-1 xl:order-2 relative bottom-10 ">

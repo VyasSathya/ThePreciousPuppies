@@ -10,8 +10,7 @@ const Navbar = () => {
         <div className="flex flex-row justify-between py-4 md:py-0 items-center">
           <a
             href="/"
-            className="text-white text- text-4xl"
-            style={{ fontFamily: 'Pacifico' }}
+            className="text-white text- text-4xl font-black"
           >
             Precious Puppies
           </a>

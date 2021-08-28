@@ -7,7 +7,7 @@ import { useState } from 'react';
 const Routes = () => {
   // const [sellStatus] = useState('Sold out!');
   // const [sellStatus] = useState('MINT');
-  const [sellStatus] = useState("Coming Soon");
+  const [sellStatus] = useState("Coming Soon!");
   return (
     <Switch>
       <Route exact path="/">
