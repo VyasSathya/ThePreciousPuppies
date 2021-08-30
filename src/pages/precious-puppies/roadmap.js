@@ -29,23 +29,26 @@ const RoadMap = () => {
             </div>
             <div className="flex-1 ml-6 sm:ml-10">
               <p className=" text-xl sm:text-2xl ">
-                Precious Puppies Launch: The pups are released
+                Prizes: Precious Puppies will start giveaways, raffles, and live art streams
+                to build a strong community base{" "}
+              </p>
+              <p className="text-xl sm:text-2xl mt-20 ">
+                Precious Puppies Launch: Minting will open to the public. The pups are released
                 and joy is spread.{" "}
               </p>
               <p className="text-xl sm:text-2xl mt-20 ">
-                Prizes: Precious Puppies will start raffles and giveaways on
-                Twitter and Discord for the PP community{" "}
-              </p>
-              <p className="text-xl sm:text-2xl mt-20 ">
-                Start Special Project: Once all pups are sold out we will be
-                start working on a little surprise for all pup holders{" "}
+                Start Creating Project: Start creating 3D renditions of your puppy to give away
+                to every pup holder{" "}
               </p>
               <p className="text-xl sm:text-2xl pt-20 ">
                 Merch Store: Cool Precious Puppies Merch will be released show
                 off your puppy pride{" "}
               </p>
               <p className="text-xl sm:text-2xl pt-20 ">
-                It's time to MYP: Meet Your Pups And the fun is only getting started{" "} 
+                Meet your pups: Each pup will have their own personality and pup holders will get to meet them
+                At this point we will talk to the community and build out that world more or create a webseries 
+                based on community feedback!
+                {" "} 
               </p>
             </div>
           </div>
