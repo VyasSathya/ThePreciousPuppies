@@ -37,7 +37,7 @@ const RoadMap = () => {
                 and joy is spread.{" "}
               </p>
               <p className="text-xl sm:text-2xl mt-20 ">
-                Start Creating Project: Start creating 3D renditions of your puppy to give away
+                Start Creating Project: Start creating 3D metaverse rendition of your puppy to give away
                 to every pup holder{" "}
               </p>
               <p className="text-xl sm:text-2xl pt-20 ">
@@ -45,9 +45,8 @@ const RoadMap = () => {
                 off your puppy pride{" "}
               </p>
               <p className="text-xl sm:text-2xl pt-20 ">
-                Meet your pups: Each pup will have their own personality and pup holders will get to meet them
-                At this point we will talk to the community and build out that world more or create a webseries 
-                based on community feedback!
+                Meet your pups: Metaverse interaction with Puppy and in the Grumpville and beyond.
+                
                 {" "} 
               </p>
             </div>
