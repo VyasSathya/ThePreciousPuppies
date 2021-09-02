@@ -1,5 +1,5 @@
 import React from 'react';
-import puppy from 'assets/puppies.gif';
+import puppy from 'assets/puppies2.gif';
 import 'styles/collections.css';
 
 const Collection = () => {
@@ -28,7 +28,7 @@ const Collection = () => {
             </a>
           </div>
           <div className="flex content-center items-center sm:p-10 order-1 xl:order-2 relative bottom-20">
-            <img src={puppy} alt="" className=" w-full " />
+            <img style={{border: '5px solid rgba(0, 0, 0, 1)', }} src={puppy} alt="" className=" w-full " />
           </div>
         </div>
       </div>

@@ -37,7 +37,7 @@ const RoadMap = () => {
                 and joy is spread.{" "}
               </p>
               <p className="text-xl sm:text-2xl mt-20 ">
-                Start Creating Project: Start creating 3D metaverse rendition of your puppy to give away
+                Start Airdrops: Once sold out, we will do drops. Including creating 3D metaverse rendition of your puppy to give away
                 to every pup holder{" "}
               </p>
               <p className="text-xl sm:text-2xl pt-20 ">

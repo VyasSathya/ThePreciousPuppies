@@ -11,7 +11,7 @@ const Footer = () => {
           <img src={no} alt="" className="h-20 w-20 cursor-pointer" />
         </a>
         <a
-          href="https://discord.com/invite/XrmwMaEseU"
+          href="https://discord.gg/fNxTGXVHfQ"
           target="_blank"
           rel="noreferrer"
         >

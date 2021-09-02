@@ -7,32 +7,85 @@ import detectEthereumProvider from '@metamask/detect-provider';
 import Web3 from 'web3';
 import PreciousPuppies from 'abi/ABI.json';
 
-const Precious = ({ sellStatus }) => {
+const Precious = () => {
   const [count, setCount] = useState(1);
+  
+  const [remainingPups, setRemainingPups] = useState("10000");
+  const [sellStatus, setSellStatus] = useState("coming soon");
+  //const [sellStatus, setSellStatus] = useState("connect");
+  //const [sellStatus, setSellStatus] = useState("sold out");
+
+  
+  
   const handleIncrement = () => {
     if (count < 20) setCount(count + 1);
   };
   const handleDecrement = () => {
     if (count > 1) setCount(count - 1);
   };
-  const findProvider = async () => {
+  const connectToMetamask = async () => {
     console.log('calling');
     const provider = await detectEthereumProvider();
     console.log('Provider: ', provider);
     if (provider) {
       // From now on, this should always be true:
       // provider === window.ethereum
-      startApp(provider); // initialize your app
+      console.log('Starting App');
+      if (provider !== window.ethereum) {
+        console.error('Do you have multiple wallets installed?');
+      }
+      const web3 = new Web3(provider);
+      await provider.enable();
+      const chainId = await provider.request({ method: 'eth_chainId' });
+      console.log('Network Connected to: ', chainId);
+      let currentAccount = null;
+      currentAccount = await provider
+        .request({ method: 'eth_accounts' })
+        .catch((err) => {
+          // Some unexpected error.
+          // For backwards compatibility reasons, if no accounts are available,
+          // eth_accounts will return an empty array.
+          console.error(err);
+        });
+      const myAccount = "" + currentAccount[0];
+      if (myAccount !== '') {
+        //Contract Address
+        const address = '0x6Dbb318EB58bF84910719500A6304dEFb844DEcc';
+        const abi = PreciousPuppies;
+        const MyContract = new web3.eth.Contract(abi, address);
+        console.log('Number of Dogs to buy: ', count);
+        console.log('Account: ', myAccount);
+        
+        const remaining = await MyContract.methods.getPuppiesLeft().call();
+        setRemainingPups(remaining);
+        setSellStatus("mint")
+      } else {
+        window.alert('Please Connect a MetaMask Account');
+        return;
+      }
+
     } else {
       console.log('Please install MetaMask!');
+      return;
     }
-  };
-  const startApp = async (provider) => {
+
     // If the provider returned by detectEthereumProvider is not the same as
     // window.ethereum, something is overwriting it, perhaps another wallet.
-    console.log('Starting App');
+    
+  };
+
+
+  const getThePups = async () => {
+    console.log('calling');
+    const provider = await detectEthereumProvider();
+    console.log('Provider: ', provider);
+    if (!provider) {
+      console.log('Please install MetaMask!');
+      return;
+    }
     if (provider !== window.ethereum) {
       console.error('Do you have multiple wallets installed?');
+      return;
     }
     const web3 = new Web3(provider);
     await provider.enable();
@@ -50,12 +103,14 @@ const Precious = ({ sellStatus }) => {
     const myAccount = "" + currentAccount[0];
     if (currentAccount !== '') {
       //Contract Address
-      const address = '0x94f16d55f4e0B2faD69DE89974E1CEC598FC9B6F';
+      const address = '0x6Dbb318EB58bF84910719500A6304dEFb844DEcc';
       const abi = PreciousPuppies;
       const MyContract = new web3.eth.Contract(abi, address);
       console.log('Number of Dogs to buy: ', count);
       const currPrice = await MyContract.methods.getPrice().call();
       console.log('Price of a Puppy: ', currPrice);
+      const pupsLeft = await MyContract.methods.getPuppiesLeft().call();
+      console.log('Pups Left: ', pupsLeft);
       const requiredAmount = (currPrice * count).toString();
       console.log('Amount to be sent: ', requiredAmount);
       const val = await MyContract.methods.getPups(count).send({
@@ -67,6 +122,7 @@ const Precious = ({ sellStatus }) => {
       window.alert('Please Connect a MetaMask Account');
     }
   };
+
   return (
     <>
       <img
@@ -99,6 +155,49 @@ const Precious = ({ sellStatus }) => {
               all for yourself!
             </p>
 
+            {sellStatus.toLowerCase() === 'connect' ? (
+              <div className="flex items-center justify-center xl:justify-start">
+                <div className="sm:mx-8 text-center">
+                  <h1
+                    className="border-2 text-lg cursor-pointer sm:text-2xl border-purple-600 bg-pink-100 font-bold rounded-full px-1 my-6 sm:px-14 py-4"
+                    onClick={connectToMetamask}
+                  >
+                    Connect
+                  </h1>
+                </div>
+              </div>
+            ) : (
+              <p></p>
+            )
+          }
+          {sellStatus.toLowerCase() === 'sold out' ? (
+            <div className="flex items-center justify-center xl:justify-start">
+              <div className="sm:mx-8 text-center">
+                <h1
+                  className="border-2 text-lg cursor-pointer sm:text-2xl border-purple-600 bg-pink-100 font-bold rounded-full px-1 my-6 sm:px-14 py-4"
+                >
+                  Sold Out
+                </h1>
+              </div>
+            </div>
+          ): (
+            <p></p>
+          )
+        }
+        {sellStatus.toLowerCase() === 'coming soon' ? (
+          <div className="flex items-center justify-center xl:justify-start">
+            <div className="sm:mx-8 text-center">
+              <h1
+                className="border-2 text-lg cursor-pointer sm:text-2xl border-purple-600 bg-pink-100 font-bold rounded-full px-1 my-6 sm:px-14 py-4"
+              >
+                Coming Soon!
+              </h1>
+            </div>
+          </div>
+        ): (
+          <p></p>
+        )
+            }
             {sellStatus.toLowerCase() === 'mint' ? (
               <div className="flex items-center justify-center xl:justify-start">
                 <img
@@ -112,7 +211,7 @@ const Precious = ({ sellStatus }) => {
                     type="button"
                     className="bg-gray-200 text-base sm:text-2xl py-3 px-2  "
                   >
-                    <span className="text-blue-700 font-semibold">9997</span>
+                    <span className="text-blue-700 font-semibold">{remainingPups}</span>
                     <span className="text-black mr-1 font-semibold">
                       /10000
                     </span>
@@ -121,7 +220,7 @@ const Precious = ({ sellStatus }) => {
 
                   <h1
                     className="border-2 text-lg cursor-pointer sm:text-2xl border-purple-600 bg-pink-100 font-bold rounded-full px-1 my-6 sm:px-14 py-4"
-                    onClick={findProvider}
+                    onClick={getThePups}
                   >
                     Mint {count} pups
                   </h1>
@@ -142,7 +241,7 @@ const Precious = ({ sellStatus }) => {
                 />
               </div>
             ) : (
-              <p className="text-2xl capitalize font-semibold">{sellStatus}</p>
+              <p></p>
             )}
           </div>
           <div className="flex -mt-7 sm:-mt-20 justify-center  items-center order-1 xl:order-2">

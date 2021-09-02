@@ -6,7 +6,7 @@ import discord from "assets/discord.svg";
 const SideBar = () => {
   return (
     <>
-      <div className="fixed right-2 z-40 top-56">
+      <div style={{zIndex:999}} className="fixed right-2 top-56">
         <a
           href="https://twitter.com/PreciousPupsNFT"
           target="_blank"
@@ -18,7 +18,7 @@ const SideBar = () => {
           <img src={no} alt="" className="h-16 w-16 cursor-pointer" />
         </a>
         <a
-          href="https://discord.com/invite/XrmwMaEseU"
+          href="https://discord.gg/fNxTGXVHfQ"
           target="_blank"
           rel="noreferrer"
         >
