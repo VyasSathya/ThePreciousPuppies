@@ -25,6 +25,9 @@ const Team = () => {
                 <h2 className="text-2xl font-semibold">Artist, Developer</h2>
                 <p className="text-2xl py-16" style={{ lineHeight: "47px" }}>
                   Feel free to tweet at me or come chill with us on discord.
+                  <br></br>
+                  <br></br>
+                  Also special thanks to @xtremetom from the Cool Cats team for being very helpful. What a great group of dudes, let's get more of that.
                 </p>
               </div>
               <div className="flex content-center items-center sm:p-10  order-1 xl:order-2 relative bottom-10 ">
