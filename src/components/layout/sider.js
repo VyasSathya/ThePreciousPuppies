@@ -14,9 +14,6 @@ const SideBar = () => {
         >
           <img src={twitter} alt="" className="h-16 w-16 cursor-pointer" />
         </a>
-        <a href="https://opensea.io/" target="_blank" rel="noreferrer">
-          <img src={no} alt="" className="h-16 w-16 cursor-pointer" />
-        </a>
         <a
           href="https://discord.gg/fNxTGXVHfQ"
           target="_blank"

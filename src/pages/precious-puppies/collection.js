@@ -14,18 +14,8 @@ const Collection = () => {
             <p className="py-12 text-2xl" style={{ lineHeight: '47px' }}>
               Each pup is unique. They wear different clothes, have different
               personalities, and even have different epistemological approaches
-              to bringing happiness to the world. Finding one that's right for
-              you is important That's why you can find the perfect pup on
-              OpenSea even after the minting date.
+              to bringing happiness to the world. 
             </p>
-            <a href="https://opensea.io/" target="_blank" rel="noreferrer">
-              <button
-                type="button"
-                className="bg-blue-700 text-white font-bold rounded-full  text-2xl py-4 px-14  cursor-pointer"
-              >
-                More Pups
-              </button>
-            </a>
           </div>
           <div className="flex content-center items-center sm:p-10 order-1 xl:order-2 relative bottom-20">
             <img style={{border: '5px solid rgba(0, 0, 0, 1)', }} src={puppy} alt="" className=" w-full " />
