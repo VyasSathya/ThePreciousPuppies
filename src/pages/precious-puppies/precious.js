@@ -230,7 +230,7 @@ const Precious = () => {
                     <span className="text-black mr-1 font-semibold">
                       /10000
                     </span>
-                    remaining
+                    Remaining
                   </button>
 
                   <h1
