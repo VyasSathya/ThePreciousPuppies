@@ -2,7 +2,7 @@
   "name": "precious-puppies",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://preciouspuppiesnft.com",
+  "homepage": "http://preciouspuppiesnft.com",
   "dependencies": {
     "@craco/craco": "^6.2.0",
     "@metamask/detect-provider": "^1.2.0",

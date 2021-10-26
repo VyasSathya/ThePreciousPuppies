@@ -244,7 +244,7 @@ const Precious = () => {
                     style={{ width: 200 }}
                     className="bg-blue-100 py-2 px-3 sm:px-7 border-2 border-blue-700  text-2xl font-extrabold text-blue-800 "
                   >
-                    {count * 0.04} eth
+                    {count * 0.06} eth
                   </button>
                 </div>
 
