@@ -5,14 +5,17 @@ import puppy from 'assets/puppi1.svg';
 import oval from 'assets/Path 3.png';
 import detectEthereumProvider from '@metamask/detect-provider';
 import Web3 from 'web3';
-import PreciousPuppies from 'abi/ABI.json';
+//precious puppies working 0.04 (eth)
+//import PreciousPuppies from 'abi/ABI.json';
+// 0.07 general purpose abi
+import PreciousPuppies from 'abi/ABIgeneral.json';
 
 const Precious = () => {
   const [count, setCount] = useState(1);
   
   const [remainingPups, setRemainingPups] = useState("10000");
   const [sellStatus, setSellStatus] = useState("coming soon");
-  //const [sellStatus, setSellStatus] = useState("connect");
+  // const [sellStatus, setSellStatus] = useState("connect");
   //const [sellStatus, setSellStatus] = useState("sold out");
 
   
@@ -50,13 +53,18 @@ const Precious = () => {
       const myAccount = "" + currentAccount[0];
       if (myAccount !== '') {
         //Contract Address
-        const address = '0x6Dbb318EB58bF84910719500A6304dEFb844DEcc';
+        //puppies at 0.04 (working)
+        //const address = '0x6Dbb318EB58bF84910719500A6304dEFb844DEcc';
+        //general purpose 0.07
+        const address = '0x3fd6Aa22B5096840CaAC5D248Ed379586EEde2e1';
+        
         const abi = PreciousPuppies;
         const MyContract = new web3.eth.Contract(abi, address);
         console.log('Number of Dogs to buy: ', count);
         console.log('Account: ', myAccount);
         
-        const remaining = await MyContract.methods.getPuppiesLeft().call();
+        //const remaining = await MyContract.methods.getPuppiesLeft().call();
+        const remaining = await MyContract.methods.getNFTLeft().call();
         setRemainingPups(remaining);
         setSellStatus("mint")
       } else {
@@ -103,17 +111,24 @@ const Precious = () => {
     const myAccount = "" + currentAccount[0];
     if (currentAccount !== '') {
       //Contract Address
-      const address = '0x6Dbb318EB58bF84910719500A6304dEFb844DEcc';
+      //const address = '0x6Dbb318EB58bF84910719500A6304dEFb844DEcc';
+      const address = '0x3fd6Aa22B5096840CaAC5D248Ed379586EEde2e1';
+      
       const abi = PreciousPuppies;
       const MyContract = new web3.eth.Contract(abi, address);
       console.log('Number of Dogs to buy: ', count);
       const currPrice = await MyContract.methods.getPrice().call();
       console.log('Price of a Puppy: ', currPrice);
-      const pupsLeft = await MyContract.methods.getPuppiesLeft().call();
+      const pupsLeft = await MyContract.methods.getNFTLeft().call();
       console.log('Pups Left: ', pupsLeft);
       const requiredAmount = (currPrice * count).toString();
       console.log('Amount to be sent: ', requiredAmount);
-      const val = await MyContract.methods.getPups(count).send({
+      // const val = await MyContract.methods.getPups(count).send({
+      //   from: myAccount,
+      //   gasPrice: "20000000000",
+      //   value: requiredAmount,
+      // });
+      const val = await MyContract.methods.mint(count).send({
         from: myAccount,
         gasPrice: "20000000000",
         value: requiredAmount,
